@@ -16,6 +16,20 @@
 
 //CODE HERE
 
+class Character{
+  constructor(name, type){
+    this.name = name
+    this.type = type
+  }
+
+  getInfo = () => {
+    return `This is a ${this.type} character named ${this.name}.`
+  }
+}
+
+const newInfo = new Character('Stacy', 'Android')
+
+newInfo.getInfo()
 //////////////////PROBLEM 2////////////////////
 
 /*
@@ -34,10 +48,38 @@
 
 //CODE HERE
 
+class NPC extends Character {
+  constructor(name, type, location, phrase){
+    super(name, type)
+    this.location = location
+    this.phrase = phrase
+  }
+  dialogue = () => {
+    return `${this.name}: ${this.phrase}`
+  }
+}
+const greeting = new NPC('Stacy', 'How are you?')
+
+greeting.dialogue()
 /*
     Create an NPC named Ralph who is a human located in Niceland. His phrase should be `I'm gonna wreck it!`. 
     Store your new NPC in a variable called 'ralph'.
 */
+
+class Ralph extends NPC{
+    constructor(name, type, phrase, location) {
+        super(name, type, phrase, location)
+    }
+
+  getInfo = () => {
+    return `This is a ${this.type} character named ${this.name}.`
+  }
+
+  dialogue = () => {
+    return `${this.name}: ${this.phrase}`
+  }
+}
+
 
 //CODE HERE
 
@@ -49,6 +91,15 @@
 */
 
 //CODE HERE
+
+const ralphsInfo = new Ralph(`Ralph`, `human`)
+// ralphsInfo.getInfo() 
+
+const ralphsDialogue = new Ralph(`Ralph`, `I'm gonna wreck it!`)
+// ralphsDialogue.dialogue()
+
+const ralphsLocation = new Ralph('Niceland')
+// ralphsLocation()
 
 //////////////////PROBLEM 3////////////////////
 
@@ -74,6 +125,28 @@
 */
 
 //CODE HERE
+class Player extends Character{
+  constructor(name, type, healthLevel, attackLevel){
+    super(name, type)
+    this.healthLevel = healthLevel
+    this.attackLevel = attackLevel
+  }
+  defend = (attackamount) => {
+    this.healthLevel - this.attackLevel
+    if(this.healthLevel > 0){
+      return obj={
+        attackStrength: attackamount,
+        remainingHealth: healthLevel,
+        message: `${name} is still in the fight!`,
+      }
+    } else {
+      return `${name} has been defeated!`
+    }
+  }
+}
+
+
+
 
 /*
     Next, we'll create two Players.
@@ -84,6 +157,10 @@
 */
 
 //CODE HERE
+const aang = new Player('Aang', 'airbender', 100, 100)
+
+const ozai = new Player('Ozai', 'firebender', 100, 0)
+
 
 /*
     Let's see how a fight between these two would go. 
@@ -93,6 +170,9 @@
 */
 
 //CODE HERE
+
+// const battle = aang(attackLevel) + ozai.defend()
+
 
 //////////////////PROBLEM 4////////////////////
 
@@ -111,7 +191,19 @@
 */
 
 //CODE HERE
-
+class Hero extends Player{
+  constructor(name, type, healthLevel, attackLevel, superPowers){
+    super(name, type, healthLevel, attackLevel)
+    this.superPowers= []
+  }
+  addSuperPower = (power) => {
+    this.superPowers.push(power)
+  }
+  useSuperPower = (index) => {
+    this.superPowers.push([index])
+    return `${name} used ${power}`
+  }
+}
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
   Fire Spitter's healthLevel and attackLevels should both be 5000. 
@@ -122,3 +214,11 @@
 */
 
 //CODE HERE
+
+const fireSpitter = new Hero ('Fire Spitter', 'dragon', 5000, 5000,)
+
+addSuperPower = (power) => {
+  this.superPowers.push('spitting fire', 'camoflauge', 'flying')
+}
+
+const fireSpitterAttack = fireSpitter.useSuperPower[0]

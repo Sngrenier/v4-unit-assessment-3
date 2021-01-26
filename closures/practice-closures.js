@@ -1,4 +1,4 @@
-  ////////////PROBLEM 1////////////
+ ////////////PROBLEM 1////////////
   
   /*
     Write a function called myFunc. 
@@ -9,18 +9,28 @@
   */
   
   //CODE HERE
+function myFunc(){
+  let myStr = 'super secret string'
 
+  function getSecretString(){
+    return myStr
+  }
+  return getSecretString
+}
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
   //CODE HERE
+
+  let secretString = myFunc()
   
   
   ////////////PROBLEM 2////////////
 
   /*
     Write a function called lightSwitch. It will return an inner function.
-    Create a variable inside lightSwitch called isTheLightOn and set its initial value to the boolean false. 
+    Create a variable inside lightSwitch called isTheLightOn and set its initial value to the 
+    boolean false. 
     Write a function called flipTheSwitch inside lightSwitch. 
     The function should invert the value of isTheLightOn and return a string. 
     If the light is on (true), the string should be 'The light is on'
@@ -30,40 +40,73 @@
   
   //CODE HERE
 
+  function lightSwitch() {
+    let isTheLightOn = false
+
+    function flipTheSwitch(){
+      isTheLightOn = true
+      if(isTheLightOn === true){
+        return 'The light is on'
+      }else if(isTheLightOn === false){
+        return 'The light is off'
+      }
+    }
+    return flipTheSwitch
+  }
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
   //CODE HERE
+  kitchenSwitch = lightSwitch()
 
   
   //Invoke kitchenSwitch.
 
   //CODE HERE
-  
+  kitchenSwitch()
   
   //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
 
   //CODE HERE
-  
+  bathroomSwitch = lightSwitch()
   
   //Invoke bathroomSwitch twice.
   
   //CODE HERE
-
+  bathroomSwitch()
   
   
   ////////////PROBLEM 3////////////
 
   /*
     Use the module pattern to create a plant height tracker, name your function 'plantTracker'
-    Set up two variables inside plantTracker, 'plant' which should be set to 'fern' and 'height' which should be set to 12
+    Set up two variables inside plantTracker, 'plant' which should be set to 'fern' and 'height' 
+    which should be set to 12
     Return 3 functions using the module pattern
-      - 'readInfo' should return a string of 'This is a PLANT plant that is HEIGHT inches tall.', where PLANT is the value of the plant variable and HEIGHT is the value of the height variable.
+      - 'readInfo' should return a string of 'This is a PLANT plant that is HEIGHT inches tall.', 
+      where PLANT is the value of the plant variable and HEIGHT is the value of the height variable.
       - 'waterPlant' should add 1 to the height and return the new height
       - 'prunePlant' should subtract 1 from the height and return the new height
   */
 
   //CODE HERE
+
+  function plantTracker(){
+    let plant = 'fern'
+    let height = 12
+
+    return{
+      readInfo: function() {
+        return `This is a ${plant} that is ${height} inches tall.`
+      },
+      waterPlant: function() {
+        return height + 1
+      },
+      prunePlant: function() {
+        return height - 1
+      }
+    }
+  }
 
 
   ////////////PROBLEM 4////////////
@@ -79,6 +122,81 @@
   */
 
   //CODE HERE
+function inventory(){
+  let products = []
+
+  return{
+    readProducts: function() {
+      return products
+    },
+    addToProducts: function(str) {
+      return products.push(str)
+    },
+    deleteFromProducts: function(str){
+      let productsIndex= products.indexOf(str)
+      return products.splice(productsIndex, 1)
+    }
+  }
+
+}
+
+
+//   function readProducts(){
+//     return products
+//   }
+//   function addToProducts(str){
+//     return products.push(str)
+//   }
+//   function deleteFromProducts(str){
+//     let productsIndex= products.indexOf(products)
+//     return str.splice(productsIndex, 1)
+//     }
+//   }
+//   function inventory(){
+//     return products
+// }
+
+
+
+
+
+//   function readProducts(){
+//     return products
+//   }
+//   function addToProducts(str){
+//     return products.push(str)
+//   }
+//   function deleteFromProducts(str){
+//     let productsIndex= products.indexOf(products)
+//     return str.splice(productsIndex, 1)
+//     }
+//   }
+//   function inventory(){
+//     return products
+// }
+
+  // return{
+  //   readProducts: () => {
+  //     return products
+  //   },
+  //   addToProducts: (product) => {
+  //     products.push(product)
+  //     return products
+  //   },
+  //   deleteFromProducts: (product) => {
+  //     let productsIndex= products.indexOf(product)
+  //     products.splice(productsIndex, 1)
+  //     return products
+  //     },
+  //   },
+  //   function inventory(){
+  //     return products
+  //   }
+  // }
+
+  
+    
+  
 
 
   /*
@@ -86,7 +204,7 @@
   */
 
   //CODE HERE
-
+  let shoes = inventory()
 
   /*
     Add an item to your shoes array using the addToProducts function
@@ -94,3 +212,4 @@
 
   //CODE HERE
 
+shoes.addToProducts('mules')

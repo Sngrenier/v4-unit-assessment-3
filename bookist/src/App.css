@@ -1,0 +1,85 @@
+/* .App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+} */
+
+.header-bar {
+  width: 100vw;
+  height: 100px;
+  text-align: center;
+}
+
+.myShelf {
+  width: 30vw;
+  height: 50px;
+  margin-left: 70%;
+  display: inline-block;
+}
+
+.mybooks {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  text-overflow: clip;
+  font-size: 1rem;
+}
+
+.library {
+  width: 70vw;
+  margin-right: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  display: inline-block;
+  flex-wrap: wrap;
+  display: relative;
+}
+
+.book-grid {
+  width: 100px;
+  height: 200px;
+  margin: 50px;
+}
+
+.search-bar {
+  padding-right: 300px;
+  padding-left: 300px;
+}
+
+.search-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-btn {
+  border: none;
+  background-color: transparent;
+  width: 0px;
+  margin-left: 2%;
+}
+
+.clear-btn {
+  height: 20px;
+  width: 120px;
+  margin-right: 2px;
+  margin-left: 20px;
+  background-color: #e8eae6;
+  color: black;
+  border: none;
+  display: inline-block;
+  border-color: black;
+  border-style: solid;
+  border-width: 0.2px;
+  border-radius: 10%;
+}
+.images {
+  width: 10%;
+  height: 20%;
+  display: inline-block;
+  position: relative;
+}
